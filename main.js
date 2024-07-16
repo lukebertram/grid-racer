@@ -4,20 +4,23 @@
 let canvas, canvasContext;
 
 
-
-window.onload = function() {
-  canvas = document.getElementById('gameCanvas'); // this object holds the HTML canvas dimensions
-  canvasContext = canvas.getContext('2d'); // this object lets one draw on or manipulate the canvas
-  canvas.style.cursor = 'crosshair';
-
+function startGame() {
   let framesPerSecond = 30;
   setInterval(function() {
     moveEverything();
     drawEverything();
   }, 1000/framesPerSecond);
   
+}
+
+window.onload = function() {
+  canvas = document.getElementById('gameCanvas'); // this object holds the HTML canvas dimensions
+  canvasContext = canvas.getContext('2d'); // this object lets one draw on or manipulate the canvas
+  canvas.style.cursor = 'crosshair';
+
   initializeInput();
   initializeCar();
+  startGame();
 }
 
 function moveEverything() {
