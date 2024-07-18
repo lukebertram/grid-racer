@@ -13,6 +13,7 @@ function startGame() {
   
 }
 
+
 window.onload = function() {
   canvas = document.getElementById('gameCanvas'); // this object holds the HTML canvas dimensions
   canvasContext = canvas.getContext('2d'); // this object lets one draw on or manipulate the canvas
@@ -20,7 +21,7 @@ window.onload = function() {
 
   initializeInput();
   initializeCar();
-  startGame();
+  loadImages();
 }
 
 function moveEverything() {

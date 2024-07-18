@@ -5,8 +5,6 @@ const TURN_RATE = 0.03;
 const MIN_TURN_SPEED = 0.4;
 
 let car;
-let carPic = document.createElement("img");
-let carPicLoaded = false;
 
 class Car {
   constructor() {
@@ -26,9 +24,7 @@ class Car {
   }
 
   draw() {
-    if(carPicLoaded) {
       drawBmp(canvasContext, carPic, this.x, this.y, this.angle)
-    }
   }
 
   move() {
@@ -67,10 +63,5 @@ function carReset() {
 }
 
 function initializeCar() {
-  carPic.onload = function(){
-    carPicLoaded = true;
-  }
-  carPic.src = "player1.png";
-
   carReset();
 }

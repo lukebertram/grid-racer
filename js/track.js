@@ -1,7 +1,6 @@
 // Track-related CONSTANTS
 const TRACK_WIDTH = 40;
 const TRACK_HEIGHT = 40;
-const TRACK_GAP = 1;
 const TRACK_COLS = 20;
 const TRACK_ROWS = 15;
 
@@ -55,12 +54,12 @@ function checkForTrackAtPixelCoord(pixelX, pixelY) {
 function drawTrack() {
   for (let col = 0; col < TRACK_COLS; col++) { // For each column...
     for (let row = 0; row < TRACK_ROWS; row++) { // for each row within that column...
-      if (isWallAtTileCoord(col, row)) {
-
         const trackX = col * TRACK_WIDTH;
         const trackY = row * TRACK_HEIGHT;
-        // draw a blue rectangle with its upper-left corner at that (x,y) coord
-        colorRect(canvasContext, trackX + TRACK_GAP, trackY + TRACK_GAP, TRACK_WIDTH - TRACK_GAP, TRACK_HEIGHT - TRACK_GAP, 'blue');
+      if (isWallAtTileCoord(col, row)) {
+        canvasContext.drawImage(trackPicWall, trackX, trackY);
+      } else {
+        canvasContext.drawImage(trackPicRoad, trackX, trackY);
       }
     }
   }
