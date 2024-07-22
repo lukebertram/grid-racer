@@ -1,7 +1,6 @@
-// const GAME_WIDTH = 800;
-// const GAME_HEIGHT = 600;
-
 let canvas, canvasContext;
+let p2 = new Car();
+let p1 = new Car();
 
 
 function startGame() {
@@ -19,28 +18,26 @@ window.onload = function() {
   canvasContext = canvas.getContext('2d'); // this object lets one draw on or manipulate the canvas
   canvas.style.cursor = 'crosshair';
 
+  p2.init(p2CarPic, "Green Car"); 
+  p1.init(p1CarPic, "Blue Car");
   initializeInput();
-  initializeCar();
   loadImages();
 }
 
 function moveEverything() {
-  car.move();
+  p2.move();
+  p1.move();
 }
 
 function drawEverything() {
   canvasContext.textAlign = 'center';
   // draw the background
-  colorRect(canvasContext, 0, 0, canvas.width, canvas.height, 'black');
+  // colorRect(canvasContext, 0, 0, canvas.width, canvas.height, 'black');
 
   // draw the track
   drawTrack();
 
   // draw the car
-  car.draw();
-  // draw score
-  // canvasContext.fillStyle = 'white';
-  // canvasContext.font = 'bold 24px sans-serif';
-  // canvasContext.fillText(player1Score, 100, 100);
-
+  p2.draw();
+  p1.draw();
 }
